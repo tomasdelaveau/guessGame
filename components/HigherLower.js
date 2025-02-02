@@ -6,8 +6,8 @@ export default function HigherLower(props) {
     <View style={styles.promptBox}>
       <Text style={styles.promptText}>Higher or Lower?</Text>
       <View style={styles.buttonContainer}>
-        <Button title="Lower" onPress={props.onLower} />
-        <Button title="Higher" onPress={props.onHigher} />
+        <Button title="Lower" onPress={() => props.onPress("lower")} />
+        <Button title="Higher" onPress={() => props.onPress("higher")} />
       </View>
     </View>
   );

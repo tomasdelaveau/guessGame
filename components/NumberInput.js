@@ -38,6 +38,7 @@ export default function NumberInput(props) {
           <Button
             title="Reset"
             onPress={() => {
+              console.log('resetting')
               setEnteredNumber("");
             }}
           />

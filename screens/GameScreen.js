@@ -4,21 +4,28 @@ import HigherLower from "../components/HigherLower";
 import { useState } from "react";
 
 export default function NumberInput(props) {
-  function generateNumber() {
-    let initial = Math.random();
-    if (initial < 0.005 || initial >= 0.995) return generateNumber();
-    return Math.round(initial * 100);
-  }
-  const [guessedNumber, setGuessedNumber] = useState(generateNumber());
-  const [currentGuesses, setCurrentGuesses] = useState([guessedNumber]);
+  const [min, setMin] = useState(1);
+  const [max, setMax] = useState(99);
+  const [currentGuess, setCurrentGuess] = useState(generateNumber());
+  const [currentGuesses, setCurrentGuesses] = useState([currentGuess]);
 
-  function onHigher() {}
+  function generateNumber() {
+    let result = Math.random() * (max - min) + min;
+    return Math.ceil(result);
+  }
+
+  function handleGuess(higherOrLower) {
+    if (higherOrLower === 'lower') {
+      setMax(currentGuess)
+    } else if (higherOrLower ===)
+    setCurrentGuesses((currentGuesses) => [...currentGuesses, currentGuess]);
+  }
 
   return (
     <View style={styles.container}>
       <Text style={styles.topText}>Oponent's guess</Text>
       <Text style={styles.number}>{guessedNumber}</Text>
-      <HigherLower onHigher={() => {}} onLower={() => {}} />
+      <HigherLower onPress={handleGuess} />
       <GuessList guesses={currentGuesses} />
     </View>
   );
