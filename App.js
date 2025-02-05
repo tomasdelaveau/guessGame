@@ -3,17 +3,31 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
+import GameOverScreen from "./screens/GameOverScreen";
 
 export default function App() {
   const [userNumber, setUserNumber] = useState(null);
+  const [guessed, setGuessed] = useState(false);
+  const [attempts, setAttempts] = useState(null);
+
+  function handleFinish(numberOfGuesses) {
+    console.log("handling finish");
+    setAttempts(numberOfGuesses);
+    setGuessed(true);
+  }
+
+  const screen = !userNumber ? (
+    <StartGameScreen onSet={(number) => setUserNumber(number)} />
+  ) : userNumber && !guessed ? (
+    <GameScreen number={userNumber} finishGame={handleFinish} />
+  ) : (
+    <GameOverScreen number={userNumber} rounds={attempts} />
+  );
 
   return (
     <>
       <StatusBar style="auto" />
-      {!userNumber && (
-        <StartGameScreen onSet={(number) => setUserNumber(number)} />
-      )}
-      {userNumber && <GameScreen />}
+      {screen}
     </>
   );
 }

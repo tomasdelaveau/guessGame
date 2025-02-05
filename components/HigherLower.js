@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 20,
     justifyContent: "space-between",
+    marginBottom: 20,
   },
   promptText: {
     color: "#D6A657",
