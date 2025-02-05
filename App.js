@@ -16,12 +16,21 @@ export default function App() {
     setGuessed(true);
   }
 
+  function handleReset() {
+    setUserNumber(null);
+    setGuessed(false);
+  }
+
   const screen = !userNumber ? (
     <StartGameScreen onSet={(number) => setUserNumber(number)} />
   ) : userNumber && !guessed ? (
     <GameScreen number={userNumber} finishGame={handleFinish} />
   ) : (
-    <GameOverScreen number={userNumber} rounds={attempts} />
+    <GameOverScreen
+      number={userNumber}
+      rounds={attempts}
+      startNewGame={handleReset}
+    />
   );
 
   return (

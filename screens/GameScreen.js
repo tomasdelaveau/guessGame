@@ -16,9 +16,6 @@ export default function GameScreen(props) {
   }
 
   function handleGuess(higherOrLower) {
-    console.log(
-      `current guess: ${typeof currentGuess}, props.number: ${typeof props.number}`
-    );
     if (
       (higherOrLower === "lower" && currentGuess < props.number) ||
       (higherOrLower === "higher" && currentGuess > props.number)
@@ -26,19 +23,14 @@ export default function GameScreen(props) {
       Alert.alert("Liar");
       return;
     } else if (currentGuess == props.number) {
-      console.log("inside finish");
       props.finishGame(currentGuesses.length);
     }
 
     let newGuess;
-    console.log(`max ${max}, min: ${min}`);
-    console.log("current guess: ", currentGuess);
     if (higherOrLower === "lower") {
-      console.log("inside lower");
       setMax(currentGuess - 1);
       newGuess = generateNumber(min, currentGuess - 1);
     } else if (higherOrLower === "higher") {
-      console.log("inside higher");
       setMin(currentGuess + 1);
       newGuess = generateNumber(currentGuess + 1, max);
     }
