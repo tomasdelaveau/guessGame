@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet } from "react-native";
+import { StyleSheet, ImageBackground, SafeAreaView } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
 import GameOverScreen from "./screens/GameOverScreen";
+import DismissKeyboard from "./components/DismissKeyboard";
 
 export default function App() {
   const [userNumber, setUserNumber] = useState(null);
@@ -11,7 +12,6 @@ export default function App() {
   const [attempts, setAttempts] = useState(null);
 
   function handleFinish(numberOfGuesses) {
-    console.log("handling finish");
     setAttempts(numberOfGuesses);
     setGuessed(true);
   }
@@ -34,26 +34,26 @@ export default function App() {
   );
 
   return (
-    <>
-      <StatusBar style="auto" />
-      {screen}
-    </>
+    <DismissKeyboard>
+      <LinearGradient colors={["#3C021E", "#D6A657"]} style={styles.rootScreen}>
+        <ImageBackground
+          source={require("./assets/images/background.png")}
+          resizeMode="cover"
+          style={styles.rootScreen}
+          imageStyle={styles.image}
+        >
+          <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
+        </ImageBackground>
+      </LinearGradient>
+    </DismissKeyboard>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  rootScreen: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "flex-start",
-    marginTop: 150,
   },
-  text: {
-    borderWidth: 2,
-    borderColor: "white",
-    color: "white",
-    fontSize: 30,
-    padding: 10,
-    marginBottom: 40,
+  image: {
+    opacity: 0.15,
   },
 });

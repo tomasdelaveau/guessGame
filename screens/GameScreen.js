@@ -10,7 +10,6 @@ export default function GameScreen(props) {
   const [currentGuesses, setCurrentGuesses] = useState([currentGuess]);
 
   function generateNumber(inf, sup) {
-    console.log(`inf: ${inf}, sup: ${sup}`);
     let result = Math.random() * (sup - inf) + inf;
     return Math.ceil(result);
   }
@@ -56,9 +55,10 @@ const styles = StyleSheet.create({
     marginTop: 100,
   },
   topText: {
-    color: "black",
+    color: "white",
     fontSize: 30,
     borderWidth: 2,
+    borderColor: "white",
     padding: 10,
     width: "80%",
     textAlign: "center",
@@ -67,6 +67,8 @@ const styles = StyleSheet.create({
   number: {
     fontSize: 40,
     borderWidth: 2,
+    borderColor: "white",
+    color: "white",
     paddingVertical: 20,
     width: "70%",
     textAlign: "center",

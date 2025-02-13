@@ -1,11 +1,4 @@
-import {
-  View,
-  Text,
-  TextInput,
-  StyleSheet,
-  Pressable,
-  Alert,
-} from "react-native";
+import { View, Text, TextInput, StyleSheet, Alert } from "react-native";
 import Button from "./Button";
 import { useState } from "react";
 
@@ -13,12 +6,17 @@ export default function NumberInput(props) {
   const [enteredNumber, setEnteredNumber] = useState("");
 
   function verifyNumber() {
-    console.log("verifying number");
     if (enteredNumber < 1) {
-      Alert.alert("Invalid number", "It has to be a number between 1 and 99");
+      Alert.alert("Invalid number", "It has to be a number between 1 and 99", [
+        { text: "Okay", style: "destructive", onPress: resetInput },
+      ]);
     } else {
       props.onSet(enteredNumber);
     }
+  }
+
+  function resetInput() {
+    setEnteredNumber("");
   }
 
   return (
@@ -29,19 +27,11 @@ export default function NumberInput(props) {
           style={styles.textInput}
           inputMode="numeric"
           maxLength={2}
-          textAlign="center"
-          color="white"
           onChangeText={(text) => setEnteredNumber(text)}
           value={enteredNumber}
         />
-        <View style={styles.buttonContainer}>
-          <Button
-            title="Reset"
-            onPress={() => {
-              console.log('resetting')
-              setEnteredNumber("");
-            }}
-          />
+        <View style={styles.buttonsContainer}>
+          <Button title="Reset" onPress={resetInput} />
           <Button title="Confirm" onPress={verifyNumber} />
         </View>
       </View>
@@ -53,17 +43,21 @@ const styles = StyleSheet.create({
   container: {
     width: "90%",
     height: 175,
-    backgroundColor: "#3C021E",
+    backgroundColor: "#2d0116",
     borderRadius: 10,
     alignItems: "center",
     padding: 20,
     justifyContent: "space-between",
+    elevation: 4, //android
+    shadowColor: "black", //ios
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
   },
   text: {
     color: "#D6A657",
     fontSize: 20,
   },
-  buttonContainer: {
+  buttonsContainer: {
     flexDirection: "row",
     marginTop: 10,
     justifyContent: "space-around",
@@ -72,9 +66,12 @@ const styles = StyleSheet.create({
   textInput: {
     borderBottomWidth: 2,
     borderColor: "#D6A657",
-    minWidth: 40,
+    width: 45,
     fontSize: 30,
-    verticalPadding: -5,
+    color: "#D6A657",
+    fontWeigth: "bold",
+    textAlign: "center",
+    paddingBottom: 0,
   },
   bottomGroup: {
     alignItems: "center",
