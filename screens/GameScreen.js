@@ -10,9 +10,12 @@ export default function GameScreen(props) {
   const [currentGuess, setCurrentGuess] = useState(generateNumber(min, max));
   const [currentGuesses, setCurrentGuesses] = useState([currentGuess]);
 
-  function generateNumber(inf, sup) {
-    let result = Math.random() * (sup - inf) + inf;
-    return Math.ceil(result);
+  function generateNumber(inf, sup, exclude) {
+    let decimal = Math.random() * (sup - inf) + inf;
+    let result = Math.ceil(decimal);
+
+    if (result === exclude) return generateNumber(inf, sup, exclude);
+    return result;
   }
 
   function handleGuess(higherOrLower) {
