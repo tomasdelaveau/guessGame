@@ -1,7 +1,8 @@
 import { View, Text, StyleSheet, Alert } from "react-native";
+import { useState } from "react";
+
 import GuessList from "../components/GuessList";
 import HigherLower from "../components/HigherLower";
-import { useState } from "react";
 
 export default function GameScreen(props) {
   const [min, setMin] = useState(1);

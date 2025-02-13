@@ -1,6 +1,9 @@
-import { useState } from "react";
 import { StyleSheet, ImageBackground, SafeAreaView } from "react-native";
+import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
+
+import Colors from "./constants/colors";
+
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
 import GameOverScreen from "./screens/GameOverScreen";
@@ -35,7 +38,10 @@ export default function App() {
 
   return (
     <DismissKeyboard>
-      <LinearGradient colors={["#3C021E", "#D6A657"]} style={styles.rootScreen}>
+      <LinearGradient
+        colors={[Colors.primary800, Colors.accent500]}
+        style={styles.rootScreen}
+      >
         <ImageBackground
           source={require("./assets/images/background.png")}
           resizeMode="cover"

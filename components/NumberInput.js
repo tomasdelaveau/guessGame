@@ -1,6 +1,8 @@
 import { View, Text, TextInput, StyleSheet, Alert } from "react-native";
-import Button from "./Button";
 import { useState } from "react";
+
+import Colors from "../constants/colors";
+import Button from "./Button";
 
 export default function NumberInput(props) {
   const [enteredNumber, setEnteredNumber] = useState("");
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
   container: {
     width: "90%",
     height: 175,
-    backgroundColor: "#2d0116",
+    backgroundColor: Colors.primary800,
     borderRadius: 10,
     alignItems: "center",
     padding: 20,
@@ -54,7 +56,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
   },
   text: {
-    color: "#D6A657",
+    color: Colors.accent500,
     fontSize: 20,
   },
   buttonsContainer: {
@@ -65,10 +67,10 @@ const styles = StyleSheet.create({
   },
   textInput: {
     borderBottomWidth: 2,
-    borderColor: "#D6A657",
+    borderColor: Colors.accent500,
     width: 45,
     fontSize: 30,
-    color: "#D6A657",
+    color: Colors.accent500,
     fontWeigth: "bold",
     textAlign: "center",
     paddingBottom: 0,

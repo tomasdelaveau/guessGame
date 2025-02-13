@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet } from "react-native";
+import Colors from "../constants/colors";
 import Button from "./Button";
 
 export default function HigherLower(props) {
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   promptText: {
-    color: "#D6A657",
+    color: Colors.accent500,
     fontSize: 20,
   },
   buttonContainer: {
