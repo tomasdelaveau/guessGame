@@ -27,7 +27,11 @@ export default function App() {
   const screen = !userNumber ? (
     <StartGameScreen onSet={(number) => setUserNumber(number)} />
   ) : userNumber && !guessed ? (
-    <GameScreen number={userNumber} finishGame={handleFinish} />
+    <GameScreen
+      number={userNumber}
+      finishGame={handleFinish}
+      userNumber={userNumber}
+    />
   ) : (
     <GameOverScreen
       number={userNumber}
