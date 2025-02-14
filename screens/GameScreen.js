@@ -4,6 +4,14 @@ import { useState } from "react";
 import GuessList from "../components/GuessList";
 import HigherLower from "../components/HigherLower";
 
+function generateNumber(inf, sup, exclude) {
+  let decimal = Math.random() * (sup - inf) + inf;
+  let result = Math.floor(decimal);
+
+  if (result === exclude) return generateNumber(inf, sup, exclude);
+  return result;
+}
+
 export default function GameScreen({ number, finishGame }) {
   const [min, setMin] = useState(1);
   const [max, setMax] = useState(100);
@@ -11,14 +19,6 @@ export default function GameScreen({ number, finishGame }) {
     generateNumber(min, max, number)
   );
   const [currentGuesses, setCurrentGuesses] = useState([currentGuess]);
-
-  function generateNumber(inf, sup, exclude) {
-    let decimal = Math.random() * (sup - inf) + inf;
-    let result = Math.floor(decimal);
-
-    if (result === exclude) return generateNumber(inf, sup, exclude);
-    return result;
-  }
 
   function handleGuess(higherOrLower) {
     if (
