@@ -2,13 +2,13 @@ import { View, Text, StyleSheet } from "react-native";
 import Colors from "../constants/colors";
 import Button from "./Button";
 
-export default function HigherLower(props) {
+export default function HigherLower({ onPress }) {
   return (
     <View style={styles.promptBox}>
       <Text style={styles.promptText}>Higher or Lower?</Text>
       <View style={styles.buttonContainer}>
-        <Button title="Lower" onPress={() => props.onPress("lower")} />
-        <Button title="Higher" onPress={() => props.onPress("higher")} />
+        <Button title="Lower" onPress={() => onPress("lower")} />
+        <Button title="Higher" onPress={() => onPress("higher")} />
       </View>
     </View>
   );

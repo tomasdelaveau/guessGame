@@ -1,12 +1,12 @@
 import { ScrollView, Text, StyleSheet, View } from "react-native";
 
-export default function GuessList(props) {
+export default function GuessList({ guesses }) {
   return (
     <ScrollView
       style={{ width: "100%" }}
       contentContainerStyle={styles.contentContainer}
     >
-      {props.guesses.map((guess, index) => (
+      {guesses.map((guess, index) => (
         <View key={index} style={styles.guessBox}>
           <Text>#{index + 1}</Text>
           <Text>Oponent's guess: {guess}</Text>

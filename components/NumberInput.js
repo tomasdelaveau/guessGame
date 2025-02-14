@@ -4,7 +4,7 @@ import { useState } from "react";
 import Colors from "../constants/colors";
 import Button from "./Button";
 
-export default function NumberInput(props) {
+export default function NumberInput({ onSet }) {
   const [enteredNumber, setEnteredNumber] = useState("");
 
   function verifyNumber() {
@@ -13,7 +13,7 @@ export default function NumberInput(props) {
         { text: "Okay", style: "destructive", onPress: resetInput },
       ]);
     } else {
-      props.onSet(enteredNumber);
+      onSet(enteredNumber);
     }
   }
 

@@ -1,17 +1,17 @@
 import { Text, StyleSheet, Pressable, View } from "react-native";
 import Colors from "../constants/colors";
 
-export default function Button(props) {
+export default function Button({ onPress, title }) {
   return (
     <View style={styles.container}>
       <Pressable
-        onPress={props.onPress}
+        onPress={onPress}
         android_ripple={{ color: Colors.primary600 }}
         style={({ pressed }) =>
           pressed && { backgroundColor: Colors.primary600 }
         }
       >
-        <Text style={styles.text}>{props.title}</Text>
+        <Text style={styles.text}>{title}</Text>
       </Pressable>
     </View>
   );

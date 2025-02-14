@@ -4,11 +4,11 @@ import { useState } from "react";
 import GuessList from "../components/GuessList";
 import HigherLower from "../components/HigherLower";
 
-export default function GameScreen({ userNumber }) {
+export default function GameScreen({ number, finishGame }) {
   const [min, setMin] = useState(1);
   const [max, setMax] = useState(100);
   const [currentGuess, setCurrentGuess] = useState(
-    generateNumber(min, max, userNumber)
+    generateNumber(min, max, number)
   );
   const [currentGuesses, setCurrentGuesses] = useState([currentGuess]);
 
@@ -22,13 +22,13 @@ export default function GameScreen({ userNumber }) {
 
   function handleGuess(higherOrLower) {
     if (
-      (higherOrLower === "lower" && currentGuess < props.number) ||
-      (higherOrLower === "higher" && currentGuess > props.number)
+      (higherOrLower === "lower" && currentGuess < number) ||
+      (higherOrLower === "higher" && currentGuess > number)
     ) {
       Alert.alert("Liar");
       return;
-    } else if (currentGuess == props.number) {
-      props.finishGame(currentGuesses.length);
+    } else if (currentGuess == number) {
+      finishGame(currentGuesses.length);
     }
 
     let newGuess;

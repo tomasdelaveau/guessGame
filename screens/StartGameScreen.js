@@ -1,11 +1,11 @@
 import { Text, View, StyleSheet } from "react-native";
 import NumberInput from "../components/NumberInput";
 
-export default function StartGameScreen(props) {
+export default function StartGameScreen({ onSet }) {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Guess my Number</Text>
-      <NumberInput onSet={(number) => props.onSet(number)} />
+      <NumberInput onSet={(number) => onSet(number)} />
     </View>
   );
 }
