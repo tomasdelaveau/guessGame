@@ -7,8 +7,8 @@ export default function HigherLower({ onPress }) {
     <View style={styles.promptBox}>
       <Text style={styles.promptText}>Higher or Lower?</Text>
       <View style={styles.buttonContainer}>
-        <Button title="Lower" onPress={() => onPress("lower")} />
-        <Button title="Higher" onPress={() => onPress("higher")} />
+        <Button title="Lower" onPress={onPress.bind(this, "lower")} />
+        <Button title="Higher" onPress={onPress.bind(this, "higher")} />
       </View>
     </View>
   );
