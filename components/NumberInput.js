@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import Colors from "../constants/colors";
 import Button from "./Button";
+import Card from "./ui/Card";
 
 export default function NumberInput({ onSet }) {
   const [enteredNumber, setEnteredNumber] = useState("");
@@ -22,8 +23,7 @@ export default function NumberInput({ onSet }) {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Enter Number</Text>
+    <Card prompt="Enter Number">
       <View style={styles.bottomGroup}>
         <TextInput
           style={styles.textInput}
@@ -37,28 +37,11 @@ export default function NumberInput({ onSet }) {
           <Button title="Confirm" onPress={verifyNumber} />
         </View>
       </View>
-    </View>
+    </Card>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    width: "90%",
-    height: 175,
-    backgroundColor: Colors.primary800,
-    borderRadius: 10,
-    alignItems: "center",
-    padding: 20,
-    justifyContent: "space-between",
-    elevation: 4, //android
-    shadowColor: "black", //ios
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-  },
-  text: {
-    color: Colors.accent500,
-    fontSize: 20,
-  },
   buttonsContainer: {
     flexDirection: "row",
     marginTop: 10,

@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     padding: 10,
     color: "white",
     textAlign: "center",
+    fontSize: 20,
   },
   container: {
     backgroundColor: Colors.primary500,

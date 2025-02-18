@@ -8,8 +8,8 @@ export default function GuessList({ guesses }) {
     >
       {guesses.map((guess, index) => (
         <View key={index} style={styles.guessBox}>
-          <Text>#{index + 1}</Text>
-          <Text>Oponent's guess: {guess}</Text>
+          <Text style={styles.text}>#{index + 1}</Text>
+          <Text style={styles.text}>Oponent's guess: {guess}</Text>
         </View>
       ))}
     </ScrollView>
@@ -30,5 +30,8 @@ const styles = StyleSheet.create({
     margin: 10,
     flexDirection: "row",
     justifyContent: "space-between",
+  },
+  text: {
+    fontSize: 20,
   },
 });
