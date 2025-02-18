@@ -1,9 +1,10 @@
-import { View, Text, TextInput, StyleSheet, Alert } from "react-native";
+import { View, TextInput, StyleSheet, Alert } from "react-native";
 import { useState } from "react";
 
 import Colors from "../constants/colors";
 import Button from "./Button";
 import Card from "./ui/Card";
+import ButtonsContainer from "./ui/ButtonsContainer";
 
 export default function NumberInput({ onSet }) {
   const [enteredNumber, setEnteredNumber] = useState("");
@@ -32,22 +33,16 @@ export default function NumberInput({ onSet }) {
           onChangeText={(text) => setEnteredNumber(text)}
           value={enteredNumber}
         />
-        <View style={styles.buttonsContainer}>
+        <ButtonsContainer>
           <Button title="Reset" onPress={resetInput} />
           <Button title="Confirm" onPress={verifyNumber} />
-        </View>
+        </ButtonsContainer>
       </View>
     </Card>
   );
 }
 
 const styles = StyleSheet.create({
-  buttonsContainer: {
-    flexDirection: "row",
-    marginTop: 10,
-    justifyContent: "space-around",
-    width: "100%",
-  },
   textInput: {
     borderBottomWidth: 2,
     borderColor: Colors.accent500,

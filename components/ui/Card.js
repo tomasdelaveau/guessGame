@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   },
   promptText: {
     color: Colors.accent500,
-    fontSize: 30,
+    fontSize: 25,
     marginBottom: 20,
   },
 });
