@@ -11,30 +11,32 @@ import DismissKeyboard from "./components/DismissKeyboard";
 
 export default function App() {
   const [userNumber, setUserNumber] = useState(null);
-  const [guessed, setGuessed] = useState(false);
+  const [gameIsOver, setGameIsOver] = useState(false);
   const [attempts, setAttempts] = useState(null);
 
   function handleFinish(numberOfGuesses) {
     setAttempts(numberOfGuesses);
-    setGuessed(true);
+    setGameIsOver(true);
   }
 
   function handleReset() {
     setUserNumber(null);
-    setGuessed(false);
+    setGameIsOver(false);
   }
 
-  const screen = !userNumber ? (
-    <StartGameScreen onSet={(number) => setUserNumber(number)} />
-  ) : userNumber && !guessed ? (
-    <GameScreen number={userNumber} finishGame={handleFinish} />
-  ) : (
-    <GameOverScreen
-      number={userNumber}
-      rounds={attempts}
-      startNewGame={handleReset}
-    />
-  );
+  let screen = <StartGameScreen onSet={(number) => setUserNumber(number)} />;
+
+  if (userNumber)
+    screen = <GameScreen number={userNumber} finishGame={handleFinish} />;
+
+  if (gameIsOver)
+    screen = (
+      <GameOverScreen
+        number={userNumber}
+        rounds={attempts}
+        startNewGame={handleReset}
+      />
+    );
 
   return (
     <DismissKeyboard>
@@ -44,7 +46,7 @@ export default function App() {
       >
         <ImageBackground
           source={require("./assets/images/background.png")}
-          resizeMode="cover"
+          resizeMode="covabboutaer"
           style={styles.rootScreen}
           imageStyle={styles.image}
         >
