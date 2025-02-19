@@ -6,12 +6,14 @@ export default function GuessList({ guesses }) {
       style={{ width: "100%" }}
       contentContainerStyle={styles.contentContainer}
     >
-      {guesses.map((guess, index) => (
-        <View key={index} style={styles.guessBox}>
-          <Text style={styles.text}>#{index + 1}</Text>
-          <Text style={styles.text}>Oponent's guess: {guess}</Text>
-        </View>
-      ))}
+      {guesses
+        .map((guess, index) => (
+          <View key={index} style={styles.guessBox}>
+            <Text style={styles.text}>#{index + 1}</Text>
+            <Text style={styles.text}>Oponent's guess: {guess}</Text>
+          </View>
+        ))
+        .reverse()}
     </ScrollView>
   );
 }
