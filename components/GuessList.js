@@ -8,7 +8,7 @@ export default function GuessList({ guesses }) {
     >
       {guesses
         .map((guess, index) => (
-          <View key={index} style={styles.guessBox}>
+          <View key={guess} style={styles.guessBox}>
             <Text style={styles.text}>#{index + 1}</Text>
             <Text style={styles.text}>Oponent's guess: {guess}</Text>
           </View>
