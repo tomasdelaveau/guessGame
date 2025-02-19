@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     shadowColor: "black", //ios
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
+    marginTop: 20,
   },
   promptText: {
     color: Colors.accent500,

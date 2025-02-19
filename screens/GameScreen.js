@@ -70,7 +70,6 @@ const styles = StyleSheet.create({
     width: "70%",
     textAlign: "center",
     borderRadius: 10,
-    marginBottom: 50,
   },
   button: {
     marginHorizontal: 5,
