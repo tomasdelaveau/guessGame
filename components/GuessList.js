@@ -1,8 +1,8 @@
-import { ScrollView, Text, StyleSheet, View } from "react-native";
+import { FlatList, Text, StyleSheet, View } from "react-native";
 
 export default function GuessList({ guesses }) {
   return (
-    <ScrollView
+    <FlatList
       style={{ width: "100%" }}
       contentContainerStyle={styles.contentContainer}
     >
@@ -14,7 +14,7 @@ export default function GuessList({ guesses }) {
           </View>
         ))
         .reverse()}
-    </ScrollView>
+    </FlatList>
   );
 }
 
