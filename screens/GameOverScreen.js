@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
     marginBottom: 20,
+    paddingHorizontal: 20,
   },
   highlighted: {
     fontFamily: "open-sans-bold",
