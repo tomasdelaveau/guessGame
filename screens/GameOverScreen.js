@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     borderRadius: "50%",
     borderWidth: 4,
     borderColor: Colors.primary500,
-    margin: 10,
+    margin: 20,
     overflow: "hidden",
   },
   image: {
@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
     fontFamily: "open-sans",
     fontSize: 20,
     textAlign: "center",
+    marginBottom: 20,
   },
   highlighted: {
     fontFamily: "open-sans-bold",
