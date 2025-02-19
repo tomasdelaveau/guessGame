@@ -1,5 +1,5 @@
 import { Text, StyleSheet, Pressable, View } from "react-native";
-import Colors from "../constants/colors";
+import Colors from "../constants/Colors";
 
 export default function Button({ onPress, title }) {
   return (

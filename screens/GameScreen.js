@@ -4,6 +4,7 @@ import { useState } from "react";
 import GuessList from "../components/GuessList";
 import HigherLower from "../components/HigherLower";
 import Title from "../components/ui/Title";
+import Colors from "../constants/Colors";
 
 function generateNumber(inf, sup, exclude) {
   let decimal = Math.random() * (sup - inf) + inf;
@@ -63,9 +64,10 @@ const styles = StyleSheet.create({
   },
   number: {
     fontSize: 40,
-    borderWidth: 2,
-    borderColor: "white",
-    color: "white",
+    fontFamily: "open-sans-bold",
+    borderWidth: 4,
+    borderColor: Colors.accent500,
+    color: Colors.accent500,
     paddingVertical: 20,
     width: "70%",
     textAlign: "center",

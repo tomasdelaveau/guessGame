@@ -1,7 +1,7 @@
 import { View, TextInput, StyleSheet, Alert } from "react-native";
 import { useState } from "react";
 
-import Colors from "../constants/colors";
+import Colors from "../constants/Colors";
 import Button from "./Button";
 import Card from "./ui/Card";
 import ButtonsContainer from "./ui/ButtonsContainer";

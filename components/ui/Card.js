@@ -1,5 +1,5 @@
 import { View, StyleSheet, Text } from "react-native";
-import Colors from "../../constants/colors";
+import Colors from "../../constants/Colors";
 
 export default function Card({ children, prompt }) {
   return (
