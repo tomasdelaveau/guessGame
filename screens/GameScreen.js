@@ -42,7 +42,7 @@ export default function GameScreen({ number, finishGame }) {
       newGuess = generateNumber(currentGuess + 1, max);
     }
     setCurrentGuess(newGuess);
-    setCurrentGuesses((currentGuesses) => [...currentGuesses, newGuess]);
+    setCurrentGuesses((prevGuesses) => [...prevGuesses, newGuess]);
   }
 
   return (
