@@ -1,18 +1,23 @@
 import { StyleSheet, ImageBackground, SafeAreaView } from "react-native";
 import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-
-import Colors from "./constants/colors";
+import { useFonts } from "expo-font";
 
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
 import GameOverScreen from "./screens/GameOverScreen";
 import DismissKeyboard from "./components/DismissKeyboard";
+import Colors from "./constants/colors";
 
 export default function App() {
   const [userNumber, setUserNumber] = useState(null);
   const [gameIsOver, setGameIsOver] = useState(false);
   const [attempts, setAttempts] = useState(null);
+
+  const [fontsLoaded] = useFonts({
+    "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+  });
 
   function handleFinish(numberOfGuesses) {
     setAttempts(numberOfGuesses);
