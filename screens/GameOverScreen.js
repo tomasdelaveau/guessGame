@@ -14,8 +14,10 @@ export default function GameOverScreen({ number, rounds, startNewGame }) {
           source={require("../assets/images/success.png")}
         />
       </View>
-      <Text>
-        Your phone needed {rounds} rounds to guess the number {number}.
+      <Text style={styles.summary}>
+        Your phone needed <Text style={styles.highlighted}>{rounds}</Text>{" "}
+        rounds to guess the number{" "}
+        <Text style={styles.highlighted}>{number}</Text>.
       </Text>
       <Button title="New Game" onPress={startNewGame} />
     </View>
@@ -34,11 +36,20 @@ const styles = StyleSheet.create({
     borderRadius: "50%",
     borderWidth: 4,
     borderColor: Colors.primary500,
-    margin: 30,
+    margin: 10,
     overflow: "hidden",
   },
   image: {
     width: "100%",
     height: "100%",
+  },
+  summary: {
+    fontFamily: "open-sans",
+    fontSize: 20,
+    textAlign: "center",
+  },
+  highlighted: {
+    fontFamily: "open-sans-bold",
+    color: Colors.primary500,
   },
 });
