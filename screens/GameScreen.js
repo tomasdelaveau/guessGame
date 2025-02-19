@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import GuessList from "../components/GuessList";
 import HigherLower from "../components/HigherLower";
+import Title from "../components/ui/Title";
 
 function generateNumber(inf, sup, exclude) {
   let decimal = Math.random() * (sup - inf) + inf;
@@ -45,7 +46,7 @@ export default function GameScreen({ number, finishGame }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.topText}>Oponent's guess</Text>
+      <Title>Oponent's Guess</Title>
       <Text style={styles.number}>{currentGuess}</Text>
       <HigherLower onPress={handleGuess} />
       <GuessList guesses={currentGuesses} />
@@ -59,16 +60,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-start",
     marginTop: 100,
-  },
-  topText: {
-    color: "white",
-    fontSize: 30,
-    borderWidth: 2,
-    borderColor: "white",
-    padding: 10,
-    width: "80%",
-    textAlign: "center",
-    marginBottom: 20,
   },
   number: {
     fontSize: 40,

@@ -1,10 +1,12 @@
 import { Text, View, StyleSheet } from "react-native";
+
 import NumberInput from "../components/NumberInput";
+import Title from "../components/ui/Title";
 
 export default function StartGameScreen({ onSet }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Guess my Number</Text>
+      <Title>Guess my Number</Title>
       <NumberInput onSet={(number) => onSet(number)} />
     </View>
   );
@@ -15,13 +17,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-start",
     marginTop: 150,
-  },
-  text: {
-    borderWidth: 2,
-    borderColor: "white",
-    color: "white",
-    fontSize: 30,
-    padding: 10,
-    marginBottom: 40,
   },
 });
