@@ -1,5 +1,7 @@
 import { FlatList, Text, StyleSheet, View } from "react-native";
 
+import Colors from "../constants/Colors";
+
 export default function GuessList({ guesses }) {
   function renderFunction(itemData) {
     return (
@@ -25,9 +27,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   guessBox: {
-    backgroundColor: "#ffe9a2",
+    backgroundColor: Colors.accent500,
     padding: 10,
-    borderColor: "#613100",
+    borderColor: Colors.primary800,
     borderWidth: 1,
     borderRadius: 20,
     width: "85%",
