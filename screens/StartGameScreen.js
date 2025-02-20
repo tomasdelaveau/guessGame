@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 
 import NumberInput from "../components/NumberInput";
 import Title from "../components/ui/Title";
