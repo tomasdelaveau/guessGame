@@ -15,6 +15,7 @@ export default function GuessList({ guesses }) {
       contentContainerStyle={styles.contentContainer}
       data={guesses}
       renderItem={renderFunction}
+      keyExtractor={(item) => item}
     />
   );
 }
