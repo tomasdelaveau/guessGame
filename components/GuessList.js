@@ -1,20 +1,21 @@
 import { FlatList, Text, StyleSheet, View } from "react-native";
 
 export default function GuessList({ guesses }) {
+  function renderFunction(itemData) {
+    return (
+      <View style={styles.guessBox} onStartShouldSetResponder={() => true}>
+        <Text style={styles.text}>#{itemData.index + 1}</Text>
+        <Text style={styles.text}>Oponent's guess: {itemData.item}</Text>
+      </View>
+    );
+  }
+
   return (
     <FlatList
-      style={{ width: "100%" }}
       contentContainerStyle={styles.contentContainer}
-    >
-      {guesses
-        .map((guess, index) => (
-          <View key={guess} style={styles.guessBox}>
-            <Text style={styles.text}>#{index + 1}</Text>
-            <Text style={styles.text}>Oponent's guess: {guess}</Text>
-          </View>
-        ))
-        .reverse()}
-    </FlatList>
+      data={guesses}
+      renderItem={renderFunction}
+    />
   );
 }
 
