@@ -6,7 +6,7 @@ export default function GuessList({ guesses }) {
   function renderFunction(itemData) {
     return (
       <View style={styles.guessBox} onStartShouldSetResponder={() => true}>
-        <Text style={styles.text}>#{itemData.index + 1}</Text>
+        <Text style={styles.text}>#{guesses.length - itemData.index}</Text>
         <Text style={styles.text}>Oponent's guess: {itemData.item}</Text>
       </View>
     );
@@ -15,7 +15,7 @@ export default function GuessList({ guesses }) {
   return (
     <FlatList
       contentContainerStyle={styles.contentContainer}
-      data={guesses}
+      data={guesses.reverse()}
       renderItem={renderFunction}
       keyExtractor={(item) => item}
     />
@@ -43,5 +43,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
+    fontFamily: "open-sans",
   },
 });
