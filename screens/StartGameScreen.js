@@ -4,7 +4,7 @@ import NumberInput from "../components/NumberInput";
 import Title from "../components/ui/Title";
 
 export default function StartGameScreen({ onSet }) {
-  const { width, height } = useWindowDimensions();
+  const { height } = useWindowDimensions();
 
   const justify = height > 400 ? "center" : "flex-start";
   const margin = height > 400 ? 150 : height > 380 ? 50 : 25;
