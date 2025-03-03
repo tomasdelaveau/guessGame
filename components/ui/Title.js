@@ -1,7 +1,12 @@
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, useWindowDimensions } from "react-native";
 
 export default function Title({ children }) {
-  return <Text style={styles.topText}>{children}</Text>;
+  const { height } = useWindowDimensions();
+  const margin = height < 380 ? 10 : 20;
+
+  return (
+    <Text style={[styles.topText, { marginBottom: margin }]}>{children}</Text>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -13,6 +18,5 @@ const styles = StyleSheet.create({
     padding: 10,
     width: "80%",
     textAlign: "center",
-    marginBottom: 20,
   },
 });
