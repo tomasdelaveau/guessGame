@@ -1,4 +1,9 @@
-import { View, StyleSheet, useWindowDimensions } from "react-native";
+import {
+  View,
+  StyleSheet,
+  useWindowDimensions,
+  KeyboardAvoidingView,
+} from "react-native";
 
 import NumberInput from "../components/NumberInput";
 import Title from "../components/ui/Title";
@@ -11,10 +16,12 @@ export default function StartGameScreen({ onSet }) {
   const computedStyle = { justifyContent: justify, marginTop: margin };
 
   return (
-    <View style={[styles.container, computedStyle]}>
-      <Title>Guess my Number</Title>
-      <NumberInput onSet={(number) => onSet(number)} />
-    </View>
+    <KeyboardAvoidingView behavior="position">
+      <View style={[styles.container, computedStyle]}>
+        <Title>Guess my Number</Title>
+        <NumberInput onSet={(number) => onSet(number)} />
+      </View>
+    </KeyboardAvoidingView>
   );
 }
 
