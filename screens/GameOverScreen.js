@@ -1,25 +1,46 @@
-import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Dimensions,
+  useWindowDimensions,
+} from "react-native";
 
 import Button from "../components/Button";
 import Title from "../components/ui/Title";
 import Colors from "../constants/Colors";
 
 export default function GameOverScreen({ number, rounds, startNewGame }) {
-  return (
-    <View style={styles.container}>
-      <Title>Game Over!</Title>
-      <View style={styles.imageContainer}>
-        <Image
-          style={styles.image}
-          source={require("../assets/images/success.png")}
-        />
-      </View>
+  const { height } = useWindowDimensions();
+
+  const title = <Title>Game Over!</Title>;
+
+  const image = (
+    <View style={styles.imageContainer}>
+      <Image
+        style={styles.image}
+        source={require("../assets/images/success.png")}
+      />
+    </View>
+  );
+
+  const summaryAndRestart = (
+    <>
       <Text style={styles.summary}>
         Your phone needed <Text style={styles.highlighted}>{rounds}</Text>{" "}
         rounds to guess the number{" "}
         <Text style={styles.highlighted}>{number}</Text>.
       </Text>
       <Button title="New Game" onPress={startNewGame} />
+    </>
+  );
+
+  return (
+    <View style={styles.container}>
+      {title}
+      {height > 400 ? image : null}
+      {summaryAndRestart}
     </View>
   );
 }
