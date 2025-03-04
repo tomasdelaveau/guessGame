@@ -52,27 +52,51 @@ export default function GameScreen({ number, finishGame }) {
   }
 
   const { height } = useWindowDimensions();
-  const margin = height > 400 ? 100 : 25;
-  const padding = height > 400 ? 20 : 10;
+  let topMargin = 50;
+  let padding = 20;
+  let listMargin = 10;
+  let direction;
+  let width;
+  let justification;
+  if (height < 400) {
+    direction = "row";
+    width = "50%";
+    justification = "center";
+    topMargin = 25;
+    padding = 10;
+    listMargin = 0;
+  }
+  console.log(justification);
 
   return (
-    <View style={[styles.container, { marginTop: margin }]}>
-      <Title>Oponent's Guess</Title>
-      <Text style={[styles.number, { paddingVertical: padding }]}>
-        {currentGuess}
-      </Text>
-      <HigherLower onPress={handleGuess} />
-      <GuessList guesses={currentGuesses} />
+    <View
+      style={{
+        flexDirection: direction,
+        marginTop: topMargin,
+        flex: 1,
+      }}
+    >
+      <View
+        style={{
+          alignItems: "center",
+          justifyContent: justification,
+          width: width,
+        }}
+      >
+        <Title>Oponent's Guess</Title>
+        <Text style={[styles.number, { paddingVertical: padding }]}>
+          {currentGuess}
+        </Text>
+        <HigherLower onPress={handleGuess} />
+      </View>
+      <View style={{ width: width, marginTop: listMargin }}>
+        <GuessList guesses={currentGuesses} />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "flex-start",
-  },
   number: {
     fontSize: 40,
     fontFamily: "open-sans-bold",
