@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     fontWeigth: "bold",
     textAlign: "center",
     paddingBottom: 0,
+    marginBottom: 10,
   },
   bottomGroup: {
     alignItems: "center",

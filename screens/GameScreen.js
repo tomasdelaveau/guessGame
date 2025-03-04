@@ -1,4 +1,10 @@
-import { View, Text, StyleSheet, Alert } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Alert,
+  useWindowDimensions,
+} from "react-native";
 import { useState } from "react";
 
 import GuessList from "../components/GuessList";
@@ -45,10 +51,16 @@ export default function GameScreen({ number, finishGame }) {
     setCurrentGuesses((prevGuesses) => [...prevGuesses, newGuess]);
   }
 
+  const { height } = useWindowDimensions();
+  const margin = height > 400 ? 100 : 25;
+  const padding = height > 400 ? 20 : 10;
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { marginTop: margin }]}>
       <Title>Oponent's Guess</Title>
-      <Text style={styles.number}>{currentGuess}</Text>
+      <Text style={[styles.number, { paddingVertical: padding }]}>
+        {currentGuess}
+      </Text>
       <HigherLower onPress={handleGuess} />
       <GuessList guesses={currentGuesses} />
     </View>
@@ -60,7 +72,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "flex-start",
-    marginTop: 100,
   },
   number: {
     fontSize: 40,
@@ -68,7 +79,6 @@ const styles = StyleSheet.create({
     borderWidth: 4,
     borderColor: Colors.accent500,
     color: Colors.accent500,
-    paddingVertical: 20,
     width: "70%",
     textAlign: "center",
     borderRadius: 10,

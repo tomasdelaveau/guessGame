@@ -1,9 +1,12 @@
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, useWindowDimensions } from "react-native";
 import Colors from "../../constants/Colors";
 
 export default function Card({ children, prompt }) {
+  const { height } = useWindowDimensions();
+  const margin = height > 400 ? 20 : 10;
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { marginTop: margin }]}>
       <Text style={styles.promptText}>{prompt}</Text>
       {children}
     </View>
@@ -22,7 +25,6 @@ const styles = StyleSheet.create({
     shadowColor: "black", //ios
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
-    marginTop: 20,
     marginBottom: 10,
   },
   promptText: {
